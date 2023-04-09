@@ -98,6 +98,7 @@ const Table = ({ data }) => {
               columns={subColumns}
               columnOrder={columnOrder}
               setColumnOrder={setColumnOrder}
+              requestSort={requestSort}
             />
           ))}
         </tr>
@@ -174,7 +175,7 @@ const Table = ({ data }) => {
 export default Table;
 
 // dragable Header column
-const DragAbleHeader = ({ column, sort, columns, columnOrder, setColumnOrder }) => {
+const DragAbleHeader = ({ column, sort, columns, columnOrder, setColumnOrder, requestSort }) => {
   const ref = useRef(null);
 
   const reOrder = (curr, target) => {
