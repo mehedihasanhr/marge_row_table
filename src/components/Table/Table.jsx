@@ -24,9 +24,10 @@ const Table = ({ data }) => {
   const [filterColumn, setFilterColumn] = useState([]);
 
   // pagination
-  const paginate = (data, currentPage, paginate) => {
-    const startIndex = (currentPage - 1) * paginate;
-    return data.slice(startIndex, startIndex + paginate);
+  const paginate = (data, currentPage, nPaginate) => {
+    if (data.length <= nPaginate) return data;
+    const startIndex = (currentPage - 1) * nPaginate;
+    return data.slice(startIndex, startIndex + nPaginate);
   };
 
   // column filter
@@ -373,14 +374,17 @@ const Pagination = ({ data, nPageRows, currentPage, setCurrentPage, setNPageRows
 // ========= styled ============
 
 const TableWrapper = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   table {
     width: 100%;
     border-collapse: collapse;

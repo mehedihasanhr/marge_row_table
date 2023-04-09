@@ -1,20 +1,18 @@
-import Table from './components/Table/Table'
-import data from './data.json'
-import styled from 'styled-components'
+import Table from './components/Table/Table';
+import data from './data.json';
+import styled from 'styled-components';
 
 function App() {
   return (
     <Container>
-      <Table data={data} />     
+      <Table data={data} />
     </Container>
-  )
+  );
 }
 
-export default App
-
+export default App;
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-`
+  min-height: 100vh;
+  padding: 40px;
+`;
